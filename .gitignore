@@ -52,3 +52,7 @@ docs/_build/
 
 # PyBuilder
 target/
+
+# temp python files from past sessions
+*.*~
+.py~
