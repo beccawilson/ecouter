@@ -5,6 +5,8 @@
 import json
 import datetime
 import os
+import csv
+
 os.chdir("/home/rw13742/Documents/ecouter/ecouter/test_script")
 
 mm_file=open('test_scripts.json')
@@ -19,17 +21,25 @@ mm=json.load(mm_file)
 def print_children2(node,parent):
     #Cycle through each child
     for this_one in node:
-        root_text = mm["root"]["attributes"]
-        #see if has children
+       	#see if has children
         #if it does then recurse, else print out this data
         if len(this_one["children"]) > 0:
             #append the current parent to the parents variable, this will give the full path. 
-	    if parent == "":
-		parent = root_text.values()[0]
-	    else:
-            	parents = parent+'/'+this_one["attributes"]["text"]
-            	print_children2(this_one["children"],parents)
-            print "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
+	    parents = parent+'/'+this_one["attributes"]["text"]
+	    print_children2(this_one["children"],parents)
+	
+	text = this_one["attributes"]["text"]
+	ID = this_one["id"]
+	###fill stuff here
+	with open("ouput.csv", "ab") as csvfile:
+    	    output_file = csv.writer(csvfile)
+	    output_file.writerow([text, ID]) #add to this list of columns
+
+root_text = mm["root"]["attributes"]
+parent = root_text.values()[0]
+print_children2(mm["root"]["children"],parent)
+
+       #     print "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
 	#    print "children = "+this_one["children"]
        # print "Leaf       = "+this_one["attributes"]["text"]
        # print "Parents    = "+parent
