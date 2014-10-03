@@ -27,31 +27,29 @@ def print_children2(node,parent):
             #append the current parent to the parents variable, this will give the full path. 
 	    parents = parent+'/'+this_one["attributes"]["text"]
 	    print_children2(this_one["children"],parents)
-	
-	text = this_one["attributes"]["text"]
 	ID = this_one["id"]
+	parent = parent
+	text = this_one["attributes"]["text"]
+	note = this_one["attributes"]["note"]
+	links = this_one["attributes"]["links"]
+	image = this_one["attributes"]["image"]
+	last_editor = this_one["attributes"]["lastEditor"]
+	last_edit = datetime.datetime.fromtimestamp(this_one["attributes"]["lastEdit"]/1000).strftime('%Y-%m-%d %H:%M:%S')
+	# # print "lastEdit   = "+str(this_one["attributes"]["lastEdit"])
+        #This is in milliseconds, so divide by 1000
+	
 	###fill stuff here
 	with open("ouput.csv", "ab") as csvfile:
     	    output_file = csv.writer(csvfile)
-	    output_file.writerow([text, ID]) #add to this list of columns
+	    output_file.writerow([ID, parent, text, note, links, image, last_editor, last_edit]) #add to this list of columns
+	
+with open("ouput.csv", "ab") as csvfile:
+    	    output_file = csv.writer(csvfile)
+	    output_file.writerow(["ID", "parent", "text", "note", "links", "image", "last_editor", "last_edit"]) 
 
 root_text = mm["root"]["attributes"]
 parent = root_text.values()[0]
 print_children2(mm["root"]["children"],parent)
 
-       #     print "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
-	#    print "children = "+this_one["children"]
-       # print "Leaf       = "+this_one["attributes"]["text"]
-       # print "Parents    = "+parent
-       # print "ID         = "+this_one["id"]
-       # print "lastEditor = "+this_one["attributes"]["lastEditor"]
-       # print "lastEdit   = "+str(this_one["attributes"]["lastEdit"])
-        #This is in milliseconds, so divide by 1000
-       # print "lastEdit   = "+datetime.datetime.fromtimestamp(this_one["attributes"]["lastEdit"]/1000).strftime('%Y-%m-%d %H:%M:%S')
-       # print "note       = "+this_one["attributes"]["note"]
-        #links is a dict object, so needs some extra care.
-        #print "links      = "+this_one["attributes"]["links"]
         
 
-#Actually run the thing
-print_children2(mm["root"]["children"],"")
