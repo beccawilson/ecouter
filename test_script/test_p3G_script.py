@@ -6,27 +6,34 @@ import json
 import datetime
 import os
 import csv
+import glob, os
 
-os.chdir("/home/rw13742/Documents/ecouter/p3G_ecouter/data_extractor/")
+#set working directory
+os.chdir("/home/rw13742/Documents/ecouter/p3G_ecouter/data_extractor")
 
+#chnage file extension to .json
+for filename in glob.iglob(os.path.join(os.getcwd(), '*.m42')):
+    os.rename(filename, filename[:-4] + '.json')
+
+#open file
 mm_file=open('1412609393.json')
-
 mm=json.load(mm_file)
 
 #prints root_text i.e. mind map title
 #root_text = mm["root"]["attributes"]
 #print root_text.values()[0]
 
-#more sophisticated recursion
+# recursion function to cycle through and flatten each mindmap contribution
 def print_children2(node,parent):
     #Cycle through each child
     for this_one in node:
        	#see if has children
-        #if it does then recurse, else print out this data
+        #if it does then recurse
         if len(this_one["children"]) > 0:
             #append the current parent to the parents variable, this will give the full path. 
 	    parents = parent+'/'+this_one["attributes"]["text"]
 	    print_children2(this_one["children"],parents)
+#define useful data
 	ID = this_one["id"]
 	parent = parent
 	text = this_one["attributes"]["text"]
