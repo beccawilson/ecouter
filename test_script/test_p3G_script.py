@@ -7,9 +7,9 @@ import datetime
 import os
 import csv
 
-os.chdir("/home/rw13742/Documents/ecouter/ecouter/test_script")
+os.chdir("/home/rw13742/Documents/ecouter/p3G_ecouter/data_extractor/")
 
-mm_file=open('test_scripts.json')
+mm_file=open('1412609393.json')
 
 mm=json.load(mm_file)
 
@@ -52,3 +52,11 @@ print_children2(mm["root"]["children"],parent)
 
         
 
+
+##################################################
+# things to fix
+#################################################
+# html links are in a dictionary, need to extract
+# string manipulation in text column to remove <br>
+#summary stats including no of unique contributors
+#top five branches that have the most children.
