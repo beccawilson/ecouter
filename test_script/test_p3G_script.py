@@ -9,14 +9,14 @@ import csv
 import glob, os
 
 #set working directory
-os.chdir("/home/rw13742/Documents/ecouter/p3G_ecouter/data_extractor")
+#os.chdir("/home/rw13742/Documents/ecouter/p3G_ecouter/data_extractor")
 
 #chnage file extension to .json
 for filename in glob.iglob(os.path.join(os.getcwd(), '*.m42')):
     os.rename(filename, filename[:-4] + '.json')
 
 #open file
-mm_file=open('1412609393.json')
+mm_file=open('1411460991.json')
 mm=json.load(mm_file)
 
 #prints root_text i.e. mind map title
