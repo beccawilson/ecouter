@@ -9,14 +9,14 @@ import csv
 import glob, os
 
 #set working directory
-os.chdir("/home/rw13742/Documents/ecouter/ecouter/test_script")
+os.chdir("xxxx/xxxx/xxxxx")
 
 #chnage file extension to .json
 for filename in glob.iglob(os.path.join(os.getcwd(), '*.m42')):
     os.rename(filename, filename[:-4] + '.json')
 
 #open file
-mm_file=open('1411460991.json')
+mm_file=open('xxxxxxx.json')
 mm=json.load(mm_file)
 
 ##############################################
