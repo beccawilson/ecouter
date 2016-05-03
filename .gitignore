@@ -55,4 +55,7 @@ target/
 
 # temp python files from past sessions
 *.*~
-.py~
+*.py~
+
+#ral config files
+*.ini

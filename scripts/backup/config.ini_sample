@@ -1,0 +1,10 @@
+[mind42_settings]
+uname:
+pword:
+client_id:
+client_secret:
+redirect_uri:
+
+[local_settings]
+requested_mindmap_name:
+file_path_root_dir: 
