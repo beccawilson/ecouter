@@ -15,10 +15,9 @@
 
 #todo
 #v1
-#output to a file
 #log stuff, maybe with a debug flag
-#move settings out to a config file
 #get thumbnail image
+#save files the revisionId, then only need to save if it has changed.
 
 #v2
 #do an auto diff and highlight what has changed. Can we do this with the native
@@ -26,12 +25,14 @@
 #Let the admin know when changes happen (email?)
 
 __author__ = "Tom Clark, Olly Butters"
-__date__ = 3/5/2016
-__version__ = 0.2
+__date__ = 11/5/2016
+__version__ = 0.3
 
-import httplib, re, json
 import ConfigParser
-#import urllib2
+import httplib
+import json
+import re
+import time
 
 
 #################################################
@@ -184,7 +185,13 @@ body = res.read()
 #print body
 
 
-f = open('workfile', 'w')
+#revid = body['data']['revisionId']
+
+#################################################
+#Save it somewhere
+time_string = time.strftime("%Y-%m-%d_%H%M%S",time.localtime())
+full_file_path = file_path_root_dir+'/'+time_string
+f = open(full_file_path, 'w')
 f.write(body)
 
 ###############
