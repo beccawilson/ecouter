@@ -15,10 +15,9 @@
 
 #todo
 #v1
-#output to a file
 #log stuff, maybe with a debug flag
-#move settings out to a config file
 #get thumbnail image
+#save files the revisionId, then only need to save if it has changed.
 
 #v2
 #do an auto diff and highlight what has changed. Can we do this with the native
@@ -26,12 +25,14 @@
 #Let the admin know when changes happen (email?)
 
 __author__ = "Tom Clark, Olly Butters"
-__date__ = 3/5/2016
-__version__ = 0.2
+__date__ = 11/5/2016
+__version__ = 0.3
 
-import httplib, re, json
 import ConfigParser
-#import urllib2
+import httplib
+import json
+import re
+import time
 
 
 #################################################
@@ -184,19 +185,26 @@ body = res.read()
 #print body
 
 
-f = open('workfile', 'w')
+#revid = body['data']['revisionId']
+
+#################################################
+#Save it somewhere
+time_string = time.strftime("%Y-%m-%d_%H%M%S",time.localtime())
+full_file_path = file_path_root_dir+'/'+time_string
+f = open(full_file_path, 'w')
 f.write(body)
 
-###############
-#headers = {"Authorization": 'Bearer '+jsonresp['access_token']}
-#conn = httplib.HTTPSConnection('mind42.com')
-#conn.request("GET","/api/oauth2/v1/mindmapGet?mindmapId=03ea308a-6e65-4d62-9f3e-f2f1232c6b02&online=false", '', headers)
-#conn.request("GET","/api/oauth2/v1/mindmapThumbnail", '', headers)
-#res = conn.getresponse()
-##print res.status, res.reason, res.msg
-#body = res.read()
+#################################################
+#Grab the png image of the mindmap. The largest of these is still really small
+#not convinced this is very useful.
+headers = {"Authorization": 'Bearer '+jsonresp['access_token']}
+conn = httplib.HTTPSConnection('mind42.com')
+conn.request("GET","/api/oauth2/v1/mindmapThumbnail?mindmapId=03ea308a-6e65-4d62-9f3e-f2f1232c6b02&size=gallery", '', headers)
+res = conn.getresponse()
+print res.status, res.reason, res.msg
+body = res.read()
 #print body
 
-
-#f = open('workfile1.png', 'w')
-#f.write(body)
+png_file_path = file_path_root_dir+'/'+time_string+'.png'
+fp = open(png_file_path, 'w')
+fp.write(body)
