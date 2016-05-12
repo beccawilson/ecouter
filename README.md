@@ -1,9 +1,9 @@
 #Contributers
 Dr Becca Wilson & Dr Olly Butters <br /> 
-Data 2 Knowledge Research Group, University of Bristol
+[Data 2 Knowledge Research Group](http:www.bristol.ac.uk/d2k "Data 2 Knowledge website"), University of Bristol
 
 # ECOUTER
-These scripts are for use during an ECOUTER (www.bristol.ac.uk/ecouter) and include:
+These scripts are for use during an [ECOUTER](http://www.bristol.ac.uk/ecouter "ECOUTER website") and include:
   * reshaping the .m42 file (JSON) and flattening it to extract a table of mindmap metadata
   * generalised back up script utilising the Mind42 API.
   
