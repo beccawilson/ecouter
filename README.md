@@ -1,6 +1,9 @@
+[![DOI](https://zenodo.org/badge/22005/beccawilson/ecouter.svg)](https://zenodo.org/badge/latestdoi/22005/beccawilson/ecouter)
+
 #Contributers
-Dr Becca Wilson & Dr Olly Butters <br /> 
-[Data 2 Knowledge Research Group](http:www.bristol.ac.uk/d2k "Data 2 Knowledge website"), University of Bristol
+Dr Becca Wilson, [Data 2 Knowledge Research Group](http:www.bristol.ac.uk/d2k "Data 2 Knowledge website"), University of Bristol <br />
+Dr Olly Butters, [ALSPAC](http://www.bristol.ac.uk/alspac), University of Bristol <br />
+Tom Clark, [MRC IEU](http://www.bristol.ac.uk/integrative-epidemiology/), University of Bristol <br />
 
 # ECOUTER
 These scripts are for use during an [ECOUTER](http://www.bristol.ac.uk/ecouter "ECOUTER website") and include:
