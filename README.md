@@ -1,5 +1,5 @@
 #Contributers
-Becca Wilson & Olly Butters <br /> 
+Dr Becca Wilson & Dr Olly Butters <br /> 
 Data 2 Knowledge Research Group, University of Bristol
 
 # ECOUTER
