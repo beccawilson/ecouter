@@ -1,9 +1,14 @@
 [![DOI](https://zenodo.org/badge/22005/beccawilson/ecouter.svg)](https://zenodo.org/badge/latestdoi/22005/beccawilson/ecouter)
 
-#Contributers
-Dr Becca Wilson, [Data 2 Knowledge Research Group](http:www.bristol.ac.uk/d2k "Data 2 Knowledge website"), University of Bristol <br />
-Dr Olly Butters, [ALSPAC](http://www.bristol.ac.uk/alspac), University of Bristol <br />
-Tom Clark, [MRC IEU](http://www.bristol.ac.uk/integrative-epidemiology/), University of Bristol <br />
+# ECOUTER Project Publications
+* Murtagh, M.J et al., The ECOUTER methodology for stakeholder engagement in translational research. BMC Med Ethics 18, 24 (2017). [DOI: 10.1186/s12910-017-0167-z](https://doi.org/10.1186/s12910-017-0167-z)
+* Wilson RC et al., Digital Methodology to implement the ECOUTER engagement process (version 2; peer review: 2 approved). F1000Research 2017, 5:1307 [DOI: 10.12688/f1000research.8786.2](https://doi.org/10.12688/f1000research.8786.2)
+
+
+# Software Contributers
+* Dr Becca Wilson, [Data 2 Knowledge Research Group](http:www.bristol.ac.uk/d2k "Data 2 Knowledge website"), University of Bristol
+* Dr Olly Butters, [ALSPAC](http://www.bristol.ac.uk/alspac), University of Bristol
+* Tom Clark, [MRC IEU](http://www.bristol.ac.uk/integrative-epidemiology/), University of Bristol
 
 # ECOUTER
 These scripts are for use during an [ECOUTER](http://www.bristol.ac.uk/ecouter "ECOUTER website") and include:
